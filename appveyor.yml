@@ -1,8 +1,12 @@
-image: Ubuntu1804
-stack: node 12
-branches: 
-  only:
-    - master
-cache: node_modules
-install: 
-  - npm install 
+image: Ubuntu1804  # образ для сборки
+stack: node 12  # окружение
+branches:  
+  only:   
+    - master  # ветка 
+gitcache: 
+  node_modules  # кеширование
+install:  
+  - npm install  # команда установки зависимостей
+build: 
+  offtest_script:  
+    - npm run lint && npm test  # скрипт сборки
